@@ -1,0 +1,52 @@
+.bodyStream {
+    padding: 50px;
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 50rem ;
+    justify-content: center;
+}
+
+.backBox {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 0px;
+}
+
+#backButton {
+    width: 150px;
+    padding: 5px;
+    margin-left: 50px;
+    font-size: 18px;
+    color: azure;
+    border-style: none;
+    background-color: #2f475b;
+    border-color: rgb(46, 30, 47);
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+.streamButton {
+    margin-top: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.videoBox{
+    /* padding: 10px 0; */
+    display: flex;
+    justify-content: center;
+}
+
+#video {
+    width: 600px;
+    height: 450px;
+    border-radius: 5px;
+    border: solid rebeccapurple;
+}
+
+.buttonWebcam {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}

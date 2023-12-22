@@ -1,0 +1,52 @@
+.header {
+    background-color: rgb(109, 21, 40);
+    display: flex;
+    padding: 15px;
+    color: azure;
+    border-radius: 0 0 15px 15px;
+    width: 300px;
+    justify-content: center;
+}
+
+.grid{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.streamBox {
+    color: rgb(71, 71, 71);
+    padding: 50px;
+}
+
+.recordButton {
+    margin: 20% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#recordingButton {
+    margin: 15% 0;
+    overflow: hidden;
+    border-style: none;
+    padding: 10px 25px;
+    font-size: 22px;
+    color: azure;
+    border-style: none;
+    background-color: rgb(109, 21, 40);
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+.congrats {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    background-color: rgb(224, 200, 200);
+    place-items: center;
+}
+
+h2.congrats  {
+    color: 'white';
+} 
