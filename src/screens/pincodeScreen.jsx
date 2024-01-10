@@ -8,8 +8,8 @@ import LogoutCard from './logoutCard';
 
 const PincodeScreen = () => {
     const location = useLocation();
-    const {username} = location.state;
-    const { setStopChecking, checkMultipleFaces, fetchUserData } = useContext(AuthContext);
+    const {cardNumber} = location.state;
+    const { setStopChecking, checkMultipleFaces, fetchUserData, fetchCardData } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const [pincode, setPincode] = useState('');
@@ -21,19 +21,28 @@ const PincodeScreen = () => {
     };
     
  
-    const validatePincode = async (username, pincode) => {
+    const validatePincode = async (cardNumber, pincode) => {
         const showToastError = () => {
             toast.error('incorrect pincode!', {
               position: toast.POSITION.TOP_CENTER 
             });
         };
+
+        const cardDetails = {
+          cardNumber,
+          pincode,
+        }
         try {
-            const response = await axios.get(`http://localhost:8001/validate_pincode?username=${username}&pincode=${pincode}`);
+            const response = await axios.post(`http://localhost:8001/validate-pincode`, cardDetails);
             const data = response.data;
+            console.log("fetched data: ",data)
+            const user_id = data.userId;
+            console.log("user id ",user_id);
             if (data.isValid) {
-                fetchUserData(username);
+                await fetchCardData(cardNumber);
+                await fetchUserData(user_id);
                 navigate('/account');
-            } 
+            }
             else{
                 showToastError();
             }
@@ -60,8 +69,8 @@ const PincodeScreen = () => {
     }
     
     const handleOnClick = async () => {
-         validatePincode(username, pincode);
-         handleEmotionDetection();
+         validatePincode(cardNumber, pincode);
+        //  handleEmotionDetection();
     };
 
     return(

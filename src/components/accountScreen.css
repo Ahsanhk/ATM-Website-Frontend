@@ -1,0 +1,64 @@
+/* Account Screen container */
+.account-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 4dvh;
+  }
+  
+  /* Top left text */
+  .top-left-text {
+    margin-bottom: 30px;
+  }
+  
+  /* Options container */
+  .options {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* Left options */
+  .left-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .right-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .option-left {
+    text-align: end;
+  }
+
+  .option-right {
+    text-align: start;
+  }
+
+  .option-right, .option-left {
+    width: 17vw;
+    padding: 1vw;
+    margin: 10px 10px 50px 10px ;
+    border: 1px solid #9099c6;
+    background-color: #3c74a3;
+    color: azure;
+    border-radius: 10px;
+  }
+  
+  .option-right:hover, .option-left:hover {
+    background-color: #336699;
+  }
+
+  .option-left:active, .option-right:active {
+    background-color: #336699;
+  }
+
+  .heading {
+    margin-bottom : 10px;
+  }
+  

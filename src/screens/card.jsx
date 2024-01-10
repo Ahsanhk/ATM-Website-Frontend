@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import '../card.css'
-import Navbar from './navbar';
+import '../components/card.css';
 import { AuthContext } from './authProvider';
 
 const Card = ({ children }) => {

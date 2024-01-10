@@ -10,6 +10,7 @@ export const AuthProvider = ({ children, }) => {
   const [userToken, setUserToken] = useState(null);
   const [userID, setUserID] = useState(null);
   const [userData, setUserData] = useState(null);
+  const [cardData, setCardData] = useState(null);
   const [shouldLogout, setShouldLogout] = useState(false);
   const [stopChecking, setStopChecking] = useState(false);
   
@@ -61,9 +62,10 @@ export const AuthProvider = ({ children, }) => {
     };
 
 
-  const fetchUserData = async (username) => {
+  const fetchUserData = async (user_id) => {
     try{
-      const response = await axios.get(`http://localhost:8000/get-user-data/${username}`);
+      console.log("userid in context", user_id);
+      const response = await axios.get(`http://localhost:8001/get-user-data/${user_id}`);
       console.log(response.data);
       setUserData(response.data);
     }
@@ -72,6 +74,16 @@ export const AuthProvider = ({ children, }) => {
     }
   }
 
+  const fetchCardData = async (cardNumber) => {
+    try{
+      const response = await axios.get(`http://localhost:8001/get-card-details/${cardNumber}`);
+      console.log(response.data);
+      setCardData(response.data);
+    }
+    catch(error){
+      console.error("error fetching user data: ", error);
+    }
+  }
 
   useEffect(() => {
     isLoggedIn();
@@ -85,7 +97,7 @@ export const AuthProvider = ({ children, }) => {
 
   return (
     <AuthContext.Provider
-      value={{ login, logout, isLoading, userToken, userID, setStopChecking, navigate, fetchUserData, userData}}
+      value={{ login, logout, isLoading, userToken, userID, setStopChecking, navigate, fetchUserData, userData, fetchCardData, cardData}}
     >
       {children}
     </AuthContext.Provider>

@@ -4,18 +4,18 @@ import { ToastContainer, toast } from 'react-toastify/dist/react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Route, Routes, } from 'react-router-dom';
 
-import StreamScreen from './components/streamingScreen';
-import LockScreen from './components/lock';
-import HomeScreen from './components/homeScreen';
-import PincodeScreen from './components/pincodeScreen';
-import AccountScreen from './components/accountScreen';
-import AmountScreen from './components/amountScreen';
-import CongratsScreen from './components/congratScreen';
-import ConfirmScreen from './components/confirmationScreen';
-import TestScreen from './components/test';
-import { AuthProvider } from './components/authProvider';
-import CurrentTime from './components/time';
-        
+import { AuthProvider } from './screens/authProvider';
+import LockScreen from './screens/lock';
+import HomeScreen from './screens/homeScreen';
+import PincodeScreen from './screens/pincodeScreen';
+import AccountScreen from './screens/accountScreen';
+import AmountScreen from './screens/amountScreen';
+import ConfirmScreen from './screens/confirmationScreen';
+import CongratsScreen from './screens/congratScreen';
+import WebSocketTest from './screens/testSocket';
+import BalanceScreen from './screens/balanceScreen';
+import WithdrawalScreen from './screens/withdrawalScreen';
+
 
 function App() {
 
@@ -31,10 +31,13 @@ function App() {
               <Route path='/amount' element={<AmountScreen />} />
               <Route path='/confirm' element={<ConfirmScreen />} />
               <Route path='/congrats' element={<CongratsScreen />} />
-              <Route path='/time' element={<CurrentTime />} />
+              <Route path='/balance' element={<BalanceScreen />} />
+              <Route path='/withdraw' element={<WithdrawalScreen />} />
+              <Route path='/socketTest' element={<WebSocketTest />} />
 
-              <Route path='/test' element={<TestScreen />} />
-              <Route  path='/stream' element = {<StreamScreen />} />
+              {/* <Route path='/time' element={<CurrentTime />} /> */}
+              {/* <Route path='/test' element={<TestScreen />} /> */}
+              {/* <Route  path='/stream' element = {<StreamScreen />} /> */}
             </>
           </Routes>
       {/* </Router> */}

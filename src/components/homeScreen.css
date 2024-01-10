@@ -1,5 +1,5 @@
-.header {
-    background-color: rgb(109, 21, 40);
+ .header {
+    background-color: #3c74a3;
     display: flex;
     padding: 15px;
     color: azure;
@@ -8,36 +8,68 @@
     justify-content: center;
 }
 
-.grid{
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.streamBox {
-    color: rgb(71, 71, 71);
-    padding: 50px;
-}
-
-.recordButton {
-    margin: 20% 0;
+.grids {
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* justify-content: center; */
+    height: 100vh;
+  }
+  
+  /* Display section */
+  .streamBox {
+    /* background-color: yellow; */
+    text-align: center;
+    margin: 20px 0 20px 0;
+  }
+  
+  /* Input area */
+  .recordButton {
+    margin-top: 50px;
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+#pincode {
+    /* margin: 45px 0 10px 0; */
+    width: 250px;
+    margin: 20% 0 0 0;
+    padding: 10px;
+    text-align: center;
+    font-size: 16pt;
+    border-style: none;
+    border-style: none;
+    border: solid 2px #3c74a3;
+    border-radius: 10px;
+    align-items: center;
+    transition: border-color 0.2s ease;
 }
 
+#pincode:focus {
+    border-color: #2a5076;
+    outline: none;
+}
+
+
 #recordingButton {
-    margin: 15% 0;
+    margin: 10% 0;
     overflow: hidden;
     border-style: none;
     padding: 10px 25px;
     font-size: 22px;
     color: azure;
     border-style: none;
-    background-color: rgb(109, 21, 40);
+    background-color: #3c74a3;
     border-width: 1px;
     border-radius: 15px;
+    transition: background-color 0.2s ease;
 }
+
+#recordingButton:active {
+    background-color: #336699;
+  }
 
 .congrats {
     height: 100vh;
@@ -50,3 +82,9 @@
 h2.congrats  {
     color: 'white';
 } 
+
+.streamBox {
+    color: rgb(71, 71, 71);
+    padding: 50px;
+    /* background-color: aliceblue; */
+}

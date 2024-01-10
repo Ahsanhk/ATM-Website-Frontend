@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import '../card.css'
+import '../components/card.css';
 import Navbar from './navbar';
 
 const LogoutCard = ({ children }) => {
@@ -7,7 +7,7 @@ const LogoutCard = ({ children }) => {
     return(
         <div className='body1'>
             <div className='container1'>
-                <Navbar 
+                <Navbar
                 />   
             </div>
             <div className='cardBody'>

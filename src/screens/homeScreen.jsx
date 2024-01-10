@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import axios from 'axios';
-import '../homeScreen.css'
+import '../components/card.css'
+import '../components/homeScreen.css'
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify/dist/react-toastify';
 
@@ -8,7 +9,7 @@ import LogoutCard from './logoutCard';
 import { AuthProvider } from './authProvider';
 
 const HomeScreen = () => {
-    const [username, setUsername] = useState('');
+    const [cardNumber, setCardNumber] = useState('');
     // const {sendUserName} = useContext(AuthProvider)
     // const { setAuthData } = useAuth();
     
@@ -19,7 +20,7 @@ const HomeScreen = () => {
       try{
           const response = await axios.get('http://localhost:8001/detect_faces');
           const data = response.data;
-          if(data.isValid){
+          if(data.exists){
               console.log("emotion detected successfully");
           }
           else{
@@ -58,16 +59,16 @@ const HomeScreen = () => {
 
     const checkUsernameAvailability = async () => {
         try {
-          const response = await axios.get(`http://localhost:8001/get_user/${username}`);
+          const response = await axios.get(`http://localhost:8001/get-user/${cardNumber}`);
           const data = response.data;
-          console.log(data)
+          // console.log(data)
       
-          if (data.isAvailable) {
-            showToastWait();
-            await handleFaceRecogniton();
+          if (data.exists) {
+            navigate('/pincode', { state: { cardNumber } });
+            // showToastWait();
+            // await handleFaceRecogniton();
           } 
           else {
-                // showToast();
                 showToastRecognitionError();
           }
         } 
@@ -79,16 +80,15 @@ const HomeScreen = () => {
 
       const handleOnClick = async() => {
         checkUsernameAvailability();
-        
       }
 
       const handleFaceRecogniton = async () => {
         try{
-          const response = await axios.get(`http://localhost:8001/face-recognition/${username}`);
+          const response = await axios.get(`http://localhost:8001/face-recognition/${cardNumber}`);
           const data = response.data;
           console.log('face detection:', response.data);
           if(data){
-            navigate('/pincode', { state: { username } });
+            navigate('/pincode', { state: { cardNumber } });
           }
           else{
             showToastRecognitionError();
@@ -103,20 +103,20 @@ const HomeScreen = () => {
 
     return(
       <>
-      <AuthProvider initialUsername={username}>
+      <AuthProvider initialUsername={cardNumber}>
         <LogoutCard>
             <div className='grids'>
                 <div className='streamBox'>
                         <h1>We are making your transactions safer!</h1>
+                        <h2 >Enter card number</h2>
+                        
                 </div>
                 <div className='recordButton'>
-                    <p id="username-availability"></p>
-                    <h2 >Enter the username</h2>
                     <input  
                         id="pincode"
                         placeholder='username'
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        value={cardNumber}
+                        onChange={(e) => setCardNumber(e.target.value)}
                     />     
                     
                     {/* <Link to ='/pincode' > */}
@@ -124,8 +124,8 @@ const HomeScreen = () => {
                     {/* </Link> */}
                 </div>
             </div>
-          </LogoutCard>
-          </AuthProvider>
+        </LogoutCard>
+      </AuthProvider>
           </>
         );
 }

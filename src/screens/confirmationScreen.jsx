@@ -21,7 +21,7 @@ const ConfirmScreen = () => {
 
     const uploadTransactionData = async (transactionData) => {
         try {
-          const response = await axios.post('http://192.168.50.75:8001/upload-transaction-data', transactionData);
+          const response = await axios.post('http://localhost:8001/upload-transaction-data', transactionData);
           console.log('Transaction data uploaded successfully:', response.data.message);
         } catch (error) {
           console.error('Error uploading transaction data:', error.message);

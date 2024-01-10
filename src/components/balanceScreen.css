@@ -1,0 +1,64 @@
+/* Balance Screen container */
+.balance-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Top left text */
+  .top-left-text {
+    margin-bottom: 20px;
+  }
+
+  .balance-adj {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25vh;
+    width: 100%;
+    align-items: center;
+  }
+  
+  /* Balance display */
+  .balance-display {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    width: 70%;
+    height: 100%;
+    border-top: solid 2px lightblue;
+    border-bottom: solid 2px lightblue;
+  }
+  
+  .balance-display h1 {
+    font-size: 48px;
+  }
+
+  /* Individual option button */
+  .options-balance {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 10px 20px;
+    margin-top: 15%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .option-left-balance, .option-right-balance {
+    background-color: #3c74a3; 
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    color: azure;
+    width: 200px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .option-left-balance:hover, .option-right-balance:hover {
+    opacity: 0.8; 
+  }
+  

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../homeScreen.css'
+import '../components/homeScreen.css';
 // import { useLocation } from 'react-router-dom';
 
 

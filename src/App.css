@@ -23,17 +23,3 @@
   align-items: center;
   justify-content: center;
 }
-
-#pincode {
-  /* margin: 45px 0 10px 0; */
-  width: 150px;
-  margin: 20% 0 0 0;
-  padding: 5px;
-  text-align: center;
-  font-size: 16pt;
-  border-style: none;
-  border-style: none;
-  border: solid 2px rgb(164, 99, 103);
-  border-radius: 10px;
-  align-items: center;
-}
