@@ -2,6 +2,7 @@ import React, {useContext, useState} from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify/dist/react-toastify';
+import { useWebSocket } from '../components/webSocketContext';
 
 import { AuthContext } from './authProvider';
 import LogoutCard from './logoutCard';
@@ -9,7 +10,10 @@ import LogoutCard from './logoutCard';
 const PincodeScreen = () => {
     const location = useLocation();
     const {cardNumber} = location.state;
-    const { setStopChecking, checkMultipleFaces, fetchUserData, fetchCardData } = useContext(AuthContext);
+    const { fetchUserData, fetchCardData, cardData } = useContext(AuthContext);
+    const { onStartClick } = useWebSocket();
+
+    const card_id = cardData._id; 
 
     const navigate = useNavigate();
     const [pincode, setPincode] = useState('');
@@ -39,8 +43,14 @@ const PincodeScreen = () => {
             const user_id = data.userId;
             console.log("user id ",user_id);
             if (data.isValid) {
-                await fetchCardData(cardNumber);
-                await fetchUserData(user_id);
+                
+              // await Promise.all([
+              //   fetchCardData(cardNumber),
+              //   fetchUserData(user_id)
+              // ]);
+              console.log(card_id)
+                onStartClick(card_id);
+                // login();
                 navigate('/account');
             }
             else{

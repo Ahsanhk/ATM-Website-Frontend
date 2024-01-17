@@ -1,4 +1,3 @@
-/* Amount Screen container */
 .amount-screen {
     display: flex;
     flex-direction: column;
@@ -6,12 +5,11 @@
     padding: 40px;
   }
   
-  /* Top left text */
   .top-left-text {
     margin-bottom: 30px;
+    color: #474747;
   }
   
-  /* Options container */
   .options {
     margin-top: 50px;
     display: flex;
@@ -19,21 +17,18 @@
     width: 100%;
   }
   
-  /* Left options */
   .left-options {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
   
-  /* Right options */
   .right-options {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
   }
   
-  /* Individual option */
   .option {
     width: 200px;
     padding: 20px;

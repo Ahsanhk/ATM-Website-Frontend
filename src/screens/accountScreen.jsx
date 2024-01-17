@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Card from './card';
 import '../components/accountScreen.css'
 import { Link } from 'react-router-dom';
+import { useWebSocket } from '../components/webSocketContext';
+import { AuthProvider } from './authProvider';
 
 
 const AccountScreen = () => {
+    // const {cardData} = useContext(AuthProvider);
+    // const { onStartClick } = useWebSocket();
+
+    // const card_id = cardData ? cardData._id : null;
+
+    // useEffect(() => {
+    //     console.log("in account screen ", cardData)
+    //     if (card_id) {
+    //       onStartClick(card_id);
+    //     }
+    //   }, [card_id, onStartClick]);
+
 
     return(
         <Card>

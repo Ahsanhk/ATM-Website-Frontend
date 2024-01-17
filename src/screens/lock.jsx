@@ -39,14 +39,14 @@ export default function LockScreen() {
 
     const checkMultipleFaces = async () => {
         try{
-          const response = await axios.get('http://localhost:8001/multiple_face_detection');
+          const response = await axios.get('http://localhost:8001/emotion-detection');
           const data = response.data;
           console.log(data)
   
-          if(data.multiple_faces_detected){
+          if(data){
             navigate('/')
             showToastFail();
-            console.log('multiple faces detected transaction can not be processed further!!!!')
+            console.log('multiple faces or fear detected transaction can not be processed further!!!!')
           }
           else{
             console.log('no multiple faces detected');

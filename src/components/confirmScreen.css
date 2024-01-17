@@ -1,0 +1,30 @@
+.confirmScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+}
+
+.confirmOptions {
+    display: flex; 
+    flex-direction: column;
+    width: 100vw;
+    height: 50vh;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+#confirmButton {
+    width: 200px;
+    padding: 20px;
+    margin: 10px 10px 50px 10px ;
+    border: 1px solid #9099c6;
+    background-color: #3c74a3;
+    color: azure;
+    border-radius: 15px;
+    text-align: center;
+}
+
+#confirmButton:hover {
+    background-color: #336699;
+  }

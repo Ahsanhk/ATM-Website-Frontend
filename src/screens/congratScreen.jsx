@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Card from './card';
 
 const CongratsScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,11 +25,13 @@ const CongratsScreen = () => {
         <div className="shadow"></div>
     </div>
   ) : (
-    <div className="congrats">
-      <h2 style={{ color: 'maroon', fontSize: 40 }}>
-        Your transaction is successful.
-      </h2>
-    </div>
+    <Card>
+      <div className="congrats">
+        <h2 style={{ color: 'maroon', fontSize: 40 }}>
+          Your transaction is successful.
+        </h2>
+      </div>
+    </Card>
   );
 };
 

@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify/dist/react-toastify';
+import { ToastContainer } from 'react-toastify/dist/react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Route, Routes, } from 'react-router-dom';
+import {  Route, Routes, } from 'react-router-dom';
 
 import { AuthProvider } from './screens/authProvider';
 import LockScreen from './screens/lock';
@@ -15,13 +15,18 @@ import CongratsScreen from './screens/congratScreen';
 import WebSocketTest from './screens/testSocket';
 import BalanceScreen from './screens/balanceScreen';
 import WithdrawalScreen from './screens/withdrawalScreen';
+import { WebSocketProvider } from './components/webSocketContext';
+// import HandGestureDetection from './components/handTrack';
+// import PrivateRoute from './components/privateRoute';
 
 
 function App() {
+  
 
   return (
+    <WebSocketProvider>
     <AuthProvider>
-      {/* <Router> */}
+      {/* <BrowserRouter> */}
           <Routes>
             <>
               <Route path='/' element={<LockScreen />} />
@@ -40,9 +45,10 @@ function App() {
               {/* <Route  path='/stream' element = {<StreamScreen />} /> */}
             </>
           </Routes>
-      {/* </Router> */}
+      {/* </BrowserRouter> */}
       <ToastContainer />
     </AuthProvider>
+    </WebSocketProvider>
   );
 }
 
