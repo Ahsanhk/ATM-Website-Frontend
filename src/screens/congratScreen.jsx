@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Card from './card';
+import LogoutCard from './logoutCard';
+import '../components/confirmScreen.css';
 
 const CongratsScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,13 +26,13 @@ const CongratsScreen = () => {
         <div className="shadow"></div>
     </div>
   ) : (
-    <Card>
-      <div className="congrats">
-        <h2 style={{ color: 'maroon', fontSize: 40 }}>
+    <LogoutCard>
+      <div className="congratBlock">
+        <h2 style={{fontSize: 32, paddingTop: 250 }}>
           Your transaction is successful.
         </h2>
       </div>
-    </Card>
+    </LogoutCard>
   );
 };
 

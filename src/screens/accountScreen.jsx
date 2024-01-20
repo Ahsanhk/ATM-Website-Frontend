@@ -1,12 +1,22 @@
 import React, { useContext, useEffect } from 'react';
 import Card from './card';
 import '../components/accountScreen.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useWebSocket } from '../components/webSocketContext';
 import { AuthProvider } from './authProvider';
 
 
 const AccountScreen = () => {
+    const navigate = useNavigate();
+    const {fistRecognized, onStopClick} = useWebSocket();
+
+    useEffect(() => {
+        if (fistRecognized) {
+          console.log('Fist recognized. Logging out...');
+          onStopClick();
+          navigate('/');
+        }
+      }, [fistRecognized, navigate]);
     // const {cardData} = useContext(AuthProvider);
     // const { onStartClick } = useWebSocket();
 

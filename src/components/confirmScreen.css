@@ -28,3 +28,9 @@
 #confirmButton:hover {
     background-color: #336699;
   }
+
+.congratBlock {
+    text-align: center;
+    width: 65vw;
+    height: 85vh;
+}

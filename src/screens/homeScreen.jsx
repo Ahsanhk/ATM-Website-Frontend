@@ -102,13 +102,13 @@ const HomeScreen = () => {
             <div className='grids'>
                 <div className='streamBox'>
                         <h1>We are making your transactions safer!</h1>
-                        <h2 >Enter card number</h2>
+                        <h2 style={{paddingTop: 110,paddingLeft: 150, position: 'absolute', }}>Enter card number</h2>
                         
                 </div>
                 <div className='recordButton'>
                     <input  
                         id="pincode"
-                        placeholder='username'
+                        placeholder=''
                         value={cardNumber}
                         onChange={(e) => setCardNumber(e.target.value)}
                     />     
